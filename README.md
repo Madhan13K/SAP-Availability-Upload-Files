@@ -1,6 +1,6 @@
 ## 🔽 Download
 
-To download the project as a ZIP file:
+To download the project as a ZIP file into your local:
 
 1. Click the green **Code** button.
 2. Select **Download ZIP**.
