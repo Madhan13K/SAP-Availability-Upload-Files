@@ -13,7 +13,7 @@ Public Function PostWorkforceAvailability(ByVal startDate As String, _
                                         ) As String
     Dim URL As String
     Dim BOUNDARY As String
-    URL = "https://" & host & "." & enviroment & "." & domain & "/WorkforceAvailabilityService/v1/$batch"
+    URL = "https://" & host & "." & domain & "." & enviroment & "/WorkforceAvailabilityService/v1/$batch"
     BOUNDARY = "batch_123"
     
     Dim http As Object
@@ -77,7 +77,7 @@ Function GetUUID(workForcePersonExternalId As String, token As String, host As S
     Dim id As String
     
     ' API Endpoint
-    URL = "https://" & host & "." & enviroment & "." & domain & "/ProjectExperienceService/v1/$batch"
+    URL = "https://" & host & "." & domain & "." & enviroment & "/ProjectExperienceService/v1/$batch"
     Debug.Print URL
     ' Authentication Token (Replace with a valid token)
 
@@ -225,50 +225,6 @@ Function FormatTime(timeValue As Variant) As String
     End If
 End Function
 
-Public Function GetUserInputs(ByRef domain As String, ByRef authUrl As String, ByRef id As String, ByRef secret As String) As Boolean
-    Dim ws As Worksheet
-    Dim domainInput As String
-    Dim selectedDomain As String
-    Dim authenticationUrl As String
-    Dim clientId As String
-    Dim clientSecret As String
-
-    Set ws = ThisWorkbook.Sheets("InputForm") ' Change to your actual sheet name if different
-
-    domainInput = LCase(Trim(ws.Range("B2").Value))
-    authenticationUrl = Trim(ws.Range("B3").Value)
-    clientId = Trim(ws.Range("B4").Value)
-    clientSecret = Trim(ws.Range("B5").Value)
-
-    ' Validate domain selection
-    Select Case domainInput
-        Case "eu10"
-            selectedDomain = "eu10.hana.ondemand.com"
-        Case "us10"
-            selectedDomain = "us10.hana.ondemand.com"
-        Case "eu11"
-            selectedDomain = "eu11.hana.ondemand.com"
-        Case Else
-            MsgBox "Please select a valid domain: eu10, us10, or eu11.", vbExclamation, "Domain Required"
-            GetUserInputs = False
-            Exit Function
-    End Select
-
-    ' Validate inputs
-    If authenticationUrl = "" Or clientId = "" Or clientSecret = "" Then
-        MsgBox "All fields are required. Please fill in all details.", vbExclamation, "Missing Information"
-        GetUserInputs = False
-        Exit Function
-    End If
-
-    ' Assign values to output variables
-    domain = selectedDomain
-    authUrl = authenticationUrl
-    id = clientId
-    secret = clientSecret
-    GetUserInputs = True
-End Function
-
 Public Sub PostAvailability()
     Dim ws As Worksheet
     Dim workForcePersonExternalId As String
@@ -284,9 +240,9 @@ Public Sub PostAvailability()
     Dim domain As String
     Set ws = ThisWorkbook.ActiveSheet
     ' Host are always same
-    host = "resource-management-api-projectscloud"
+    host = "api"
     ' Enviroment are always same
-    enviroment = "cfapps"
+    enviroment = "resourcemanagement.cloud.sap"
     ' domain AuthUrl ClientId ClientSecrate needs input
     Dim authUrl As String
     Dim clientId As String

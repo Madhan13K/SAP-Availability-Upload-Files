@@ -43,11 +43,11 @@ End Function
 Private Sub CommandButton1_Click()
     ' Validate inputs
     If Me.OptionButton1.Value Then
-        selectedDomain = "eu10.hana.ondemand.com"
+        selectedDomain = "eu10"
     ElseIf Me.OptionButton2.Value Then
-        selectedDomain = "us10.hana.ondemand.com"
-    ElseIfButt Me.OptionButton3.Value Then
-        selectedDomain = "eu11.hana.ondemand.com"
+        selectedDomain = "us10"
+    ElseIf Me.OptionButton3.Value Then
+        selectedDomain = "eu11"
     Else
         MsgBox "Please select a domain.", vbExclamation, "Selection Required"
         Exit Sub
@@ -69,4 +69,3 @@ Private Sub CommandButton1_Click()
     ' Close the form
     Me.Hide
 End Sub
-
