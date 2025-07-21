@@ -4,7 +4,7 @@ Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} UserForm1
    ClientHeight    =   5385
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   8430
+   ClientWidth     =   8430.001
    OleObjectBlob   =   "UserForm1.frx":0000
    StartUpPosition =   1  'CenterOwner
 End
@@ -13,6 +13,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+
 Private selectedDomain As String
 Private authenticationUrl As String
 Private clientId As String
@@ -68,4 +69,8 @@ Private Sub CommandButton1_Click()
 
     ' Close the form
     Me.Hide
+End Sub
+
+Private Sub Label2_Click()
+
 End Sub

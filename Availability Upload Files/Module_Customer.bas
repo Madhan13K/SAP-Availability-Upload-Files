@@ -1,4 +1,4 @@
-Attribute VB_Name = "Module3"
+Attribute VB_Name = "WorkforcePerson_Availabilty"
 Option Explicit
 
 Public Function PostWorkforceAvailability(ByVal startDate As String, _
@@ -251,7 +251,7 @@ Public Sub PostAvailability()
    Dim success As Boolean
 
     ' Call the UserForm to get all values at once
-    success = UserForm1.GetUserInputs(domain, authUrl, clientId, clientSecret)
+    success = ConfigureParameters.GetUserInputs(domain, authUrl, clientId, clientSecret)
 
     ' Check if user submitted successfully
     If success Then
